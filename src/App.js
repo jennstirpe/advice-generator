@@ -2,6 +2,11 @@
 import GlobalStyles from "./Components/Global";
 import { ThemeProvider } from "styled-components";
 
+import { StyledCard } from "./Components/styled/Card.styled";
+import Quote from "./Components/Quote";
+import Btn from "./Components/Btn";
+
+
 const theme = {
   colors: {
     bgBody: 'hsl(218, 23%, 16%)',
@@ -23,6 +28,16 @@ function App() {
     <ThemeProvider theme={theme}>
       <>
         < GlobalStyles />
+
+        <StyledCard>
+          <Quote />
+          <Btn />
+          
+        </StyledCard>
+
+
+
+
       </>
     </ThemeProvider>
     
