@@ -38,14 +38,12 @@ function App() {
       setNewQuote(false)
     }
     fetchQuote();
-    
-
   }, [newQuote])
+
 
   const handleClick = () => {
     setNewQuote(true)
   }
-
 
   return (
     <ThemeProvider theme={theme}>

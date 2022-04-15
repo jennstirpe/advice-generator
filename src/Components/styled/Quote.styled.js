@@ -15,7 +15,6 @@ export const StyledQuote = styled.div`
     }
 
     p {
-        /* border: 1px solid white; */
         max-height: 13rem;
         color: ${({theme}) => theme.colors.quoteText};;
         font-size: 1.65rem;
