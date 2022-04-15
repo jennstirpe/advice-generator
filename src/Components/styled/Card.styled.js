@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledCard = styled.main`
-    max-height: 23rem;
+    max-height: 24rem;
     width: 23rem;
     background-color: ${({theme}) => theme.colors.bgCard};
     border-radius: 1rem;

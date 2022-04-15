@@ -12,7 +12,7 @@ export const StyledBtn = styled.button`
 
     position: absolute;
     bottom: -2rem;
-    right: 9.4rem;
+    right: 9.35rem;
 
     &:hover {
         cursor: pointer;
@@ -21,6 +21,6 @@ export const StyledBtn = styled.button`
 
 
     @media(min-width: 1440px) {
-        right: 15.5rem;
+        right: 15.35rem;
     }
 `
