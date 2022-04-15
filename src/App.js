@@ -27,15 +27,20 @@ const theme = {
 
 function App() {
   const [quote, setQuote] = useState("");
+  const [quoteId, setQuoteId] = useState(0);
   const [newQuote, setNewQuote] = useState(false);
 
   useEffect(() => {
     const fetchQuote = async () => {
       const result = await axios("https://api.adviceslip.com/advice");
-      let quoteText = result.data.slip.advice;
+      const advice = result.data;
+
+      const quoteId = advice.slip.id;
+      const quoteText = advice.slip.advice;
       
-      setQuote(quoteText); 
-      setNewQuote(false)
+      setQuoteId(quoteId);
+      setQuote(quoteText);
+      setNewQuote(false);
     }
     fetchQuote();
   }, [newQuote])
@@ -50,7 +55,7 @@ function App() {
       <>
         < GlobalStyles />
         <StyledCard>
-          <Quote quote={quote} />
+          <Quote quoteId={quoteId} quote={quote} />
           <Btn handleClick={handleClick}/>
         </StyledCard>
       </>

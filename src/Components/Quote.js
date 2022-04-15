@@ -1,10 +1,10 @@
 import { StyledQuote } from "./styled/Quote.styled";
 
 
-const Quote = ({ quote }) => {
+const Quote = ({ quoteId, quote }) => {
   return ( 
     <StyledQuote>
-        <h1>Advice #<span id="quote-id">105</span></h1>
+        <h1>Advice #<span id="quote-id">{quoteId}</span></h1>
         <p id="quote">"{quote}"</p>
         
         <div className="divider">
