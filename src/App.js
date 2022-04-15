@@ -5,6 +5,7 @@ import { ThemeProvider } from "styled-components";
 import axios from 'axios';
 
 import { StyledCard } from "./Components/styled/Card.styled";
+import { StyledBtn } from "./Components/styled/Btn.styled";
 import Quote from "./Components/Quote";
 import Btn from "./Components/Btn";
 
@@ -23,31 +24,23 @@ const theme = {
   }
 }
 
-
-
 function App() {
   const [quote, setQuote] = useState("");
   const [quoteId, setQuoteId] = useState(0);
-  const [newQuote, setNewQuote] = useState(false);
 
   useEffect(() => {
-    const fetchQuote = async () => {
-      const result = await axios("https://api.adviceslip.com/advice");
-      const advice = result.data;
-
-      const quoteId = advice.slip.id;
-      const quoteText = advice.slip.advice;
-      
-      setQuoteId(quoteId);
-      setQuote(quoteText);
-      setNewQuote(false);
-    }
     fetchQuote();
-  }, [newQuote])
+  }, [])
 
+  const fetchQuote = async () => {
+    const result = await axios("https://api.adviceslip.com/advice");
+    const advice = result.data;
 
-  const handleClick = () => {
-    setNewQuote(true)
+    const quoteId = advice.slip.id;
+    const quoteText = advice.slip.advice;
+    
+    setQuoteId(quoteId);
+    setQuote(quoteText)
   }
 
   return (
@@ -56,7 +49,7 @@ function App() {
         < GlobalStyles />
         <StyledCard>
           <Quote quoteId={quoteId} quote={quote} />
-          <Btn handleClick={handleClick}/>
+          <Btn handleClick={fetchQuote} />
         </StyledCard>
       </>
     </ThemeProvider>
